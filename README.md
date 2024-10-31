@@ -58,6 +58,23 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## change DB
+
+in the following code you should change the credentials of the DB
+
+```bash
+imports: [TypeOrmModule.forRoot({
+    type: 'mysql',
+    host: 'localhost',
+    port: 3306,
+    username: 'root',
+    password: '',
+    database: 'test_ttt',
+    entities: [User, Task],
+    synchronize: true,
+  }),
+```
+
 ## Deployment
 
 When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
@@ -97,3 +114,9 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+
+## Decisiones de diseño
+
+al ser una aplicación pequeña y rápida se decidió tener solo un app.service y un app.controller, en el controller se hacer verificaciones respectivas por ejemplo de la cookie con jwt. en cuanto a entidades estan dos, task.entity y user.entity con la respectiva relación entre ellos. En cuanto a la base de datos se uso mysql con xampp para hacer el proceso mas rapido. 
+
+gracias por revisar esta prueba y espero poder trabajar con ustedes
